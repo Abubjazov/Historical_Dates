@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack serve --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint -c .eslintrc.cjs --ext .ts,.tsx .",
+    "lint:fix": "eslint -c .eslintrc.cjs --ext .ts,.tsx . --fix",
+    "styles": "npx stylelint \"**/*.scss\"",
+    "styles:fix": "npx stylelint \"**/*.scss\" --fix"
   },
   "keywords": [],
   "author": "Abubjazov",
@@ -14,15 +18,40 @@
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "saas": "^1.0.0",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.55.0",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.3.5",
     "html-webpack-plugin": "^5.6.4",
+    "mini-css-extract-plugin": "^2.9.4",
+    "prettier": "^2.8.8",
+    "sass-embedded": "^1.92.1",
+    "sass-loader": "^16.0.5",
+    "style-loader": "^4.0.0",
+    "stylelint": "^16.24.0",
+    "stylelint-color-format": "^1.1.0",
+    "stylelint-config-recess-order": "^7.3.0",
+    "stylelint-config-recommended-scss": "^16.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "stylelint-scss": "^6.12.1",
     "ts-loader": "^9.5.4",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"
+  },
+  "volta": {
+    "node": "22.19.0",
+    "npm": "11.6.0"
   }
 }
