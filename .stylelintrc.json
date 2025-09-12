@@ -1,0 +1,9 @@
+{ 
+    "extends": ["stylelint-config-standard-scss", "stylelint-config-recommended-scss", "stylelint-config-recess-order"], 
+    "plugins": ["stylelint-order", "stylelint-color-format"],    
+    "rules": {
+        "color-no-invalid-hex": true,
+        "color-hex-length": "long",
+        "color-function-notation": "modern"
+    }      
+}
