@@ -1,0 +1,142 @@
+.revolt-switcher-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 175px;
+  height: 620px;
+  width: 100%;
+}
+
+.revolt-switcher {
+  position: relative;
+  height: 530px;
+  width: 530px;
+  z-index: 300;
+  border: 1px solid #40404033;
+  border-radius: 50%;
+}
+
+.revolt-switcher-item {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  background-color: tansparent;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 20;
+  font-weight: normal;
+  color: #42567a;
+}
+
+.revolt-switcher-item-text {
+  position: absolute;
+  left: 75px;
+  top: calc(50% - 12px);
+  width: 56px;
+  height: 56px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #42567a;
+}
+
+.revolt-switcher-item-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #42567a;
+  display: flex;
+  border-radius: 50%;
+  color: transparent;
+}
+
+.revolt-switcher-item-dot-not-active {
+  width: 6px;
+  height: 6px;
+  background-color: #42567a;
+  display: flex;
+  border-radius: 50%;
+  color: transparent;
+
+  animation-name: transitionOut;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+.revolt-switcher-item-dot-active {
+  width: 56px;
+  height: 56px;
+  background-color: #ffffff;
+  border: 1px solid #303e5880;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 20;
+  font-weight: normal;
+  color: #42567a;
+
+  animation-name: transitionIn;
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+  animation-iteration-count: 1;
+}
+
+.revolt-switcher-item:hover {
+  .revolt-switcher-item-dot {
+    width: 56px;
+    height: 56px;
+    background-color: #ffffff;
+    border: 1px solid #303e5880;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-size: 20;
+    font-weight: normal;
+    color: #42567a;
+    transition: all 0.3s ease-in-out;
+  }
+}
+
+.revolt-switcher-item:not(:hover) {
+  .revolt-switcher-item-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #42567a;
+    display: flex;
+    border-radius: 50%;
+    color: transparent;
+    transition-property: width, height, background-color;
+    transition-duration: 0.2s, 0.2s, 0.2s;
+  }
+}
+
+@keyframes transitionIn {
+  from {
+    width: 6px;
+    height: 6px;
+    background-color: #42567a;
+  }
+
+  to {
+    width: 56px;
+    height: 56px;
+    background-color: #ffffff;
+  }
+}
+
+@keyframes transitionOut {
+  from {
+    width: 56px;
+    height: 56px;
+  }
+
+  to {
+    width: 6px;
+    height: 6px;
+  }
+}
