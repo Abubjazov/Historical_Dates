@@ -2,24 +2,24 @@
   position: absolute;
   top: 170px;
   left: 0;
+  z-index: 100;
   display: flex;
   align-items: center;
   height: 134px;
   background-color: transparent;
-  z-index: 100;
 }
 
 .label-left-border {
-  margin-right: 78px;
   width: 4px;
   height: 120px;
+  margin-right: 78px;
   background: linear-gradient(#3877ee, #ef5da8);
 }
 
 .label-text {
   width: 343px;
   height: 134px;
-  color: #42567a;
   font-size: 56px;
   font-weight: bold;
+  color: #42567a;
 }

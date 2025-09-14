@@ -1,13 +1,12 @@
 .revolt-switcher-buttons-pad {
   position: absolute;
+  bottom: 0;
+  left: 80px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  left: 80px;
-  bottom: 0;
   width: 120px;
   height: 88px;
-  display: flex;
 }
 
 .revolt-switcher-buttons-wrapper {
@@ -18,10 +17,10 @@
 .revolt-switcher-button {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  cursor: pointer;
   background-color: transparent;
   border: 1px solid #42567a80;
-  cursor: pointer;
+  border-radius: 50%;
   transition: all 0.3s ease-out;
 
   &:hover {

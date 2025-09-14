@@ -1,16 +1,16 @@
 .display-wrapper {
   position: absolute;
+  z-index: 100;
   display: flex;
+  gap: 100px;
   align-items: center;
   justify-content: center;
-  gap: 100px;
-  background-color: transparent;
-  height: 135px;
-  max-width: 1440px;
   width: 100%;
-  z-index: 100;
+  max-width: 1440px;
+  height: 135px;
   font-size: 200px;
   font-weight: bold;
+  background-color: transparent;
 
   .start-year {
     color: #5d5fef;
