@@ -16,12 +16,14 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "nanoid": "^5.1.5",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "saas": "^1.0.0",
     "typescript": "^5.9.2"
   },
   "devDependencies": {
+    "@svgr/webpack": "^8.1.0",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
@@ -33,6 +35,8 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.5",
+    "favicons": "^7.2.0",
+    "favicons-webpack-plugin": "^6.0.1",
     "html-webpack-plugin": "^5.6.4",
     "mini-css-extract-plugin": "^2.9.4",
     "prettier": "^2.8.8",
@@ -46,6 +50,7 @@
     "stylelint-config-standard-scss": "^15.0.1",
     "stylelint-scss": "^6.12.1",
     "ts-loader": "^9.5.4",
+    "url-loader": "^4.1.1",
     "webpack": "^5.101.3",
     "webpack-cli": "^6.0.1",
     "webpack-dev-server": "^5.2.2"

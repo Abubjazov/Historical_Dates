@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  min-height: 1080px;
+  max-width: 1440px;
+  width: 100%;
+  border: 1px solid #42567a1a;
+}
+
+.vertical-line {
+  position: absolute;
+  width: 1px;
+  min-height: 1080px;
+  background-color: #42567a1a;
+  z-index: 0;
+}
+
+.horizontal-line {
+  position: absolute;
+  top: 480px;
+  min-width: 1440px;
+  height: 1px;
+  background-color: #42567a1a;
+  z-index: 0;
+}

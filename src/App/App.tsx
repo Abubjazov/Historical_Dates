@@ -1,13 +1,13 @@
 import React from 'react'
 
-import classes from './App.module.scss'
+import styles from './App.module.scss'
+import HistoricalDates from '../components/HistoricalDates'
+import { inputDataArray } from '../mockData/mockData'
 
 export const App: React.FC = () => {
   return (
-    <div>
-      <h1>Hello, React Type with Webpack!</h1>
-      <h2 className={classes.ntr}>Hello, React Type with Webpack!</h2>
-      <h1 className={classes.ntrGth}>Hello, React Type with Webpack!</h1>
+    <div className={styles.mainWrapper}>
+      <HistoricalDates inputData={inputDataArray} />
     </div>
   )
 }

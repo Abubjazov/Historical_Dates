@@ -1,0 +1,22 @@
+.display-wrapper {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+  background-color: transparent;
+  height: 135px;
+  max-width: 1440px;
+  width: 100%;
+  z-index: 100;
+  font-size: 200px;
+  font-weight: bold;
+
+  .start-year {
+    color: #5d5fef;
+  }
+
+  .end-year {
+    color: #ef5da8;
+  }
+}
