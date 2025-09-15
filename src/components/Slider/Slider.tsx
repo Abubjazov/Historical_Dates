@@ -1,14 +1,54 @@
 import { FC } from 'react'
 import React from 'react'
 
-import styles from './Slider.module.scss'
+import { nanoid } from 'nanoid'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+
+import 'swiper/css'
+import 'swiper/css/navigation'
+import './Slider.css'
 
 export interface SliderProps {
-  userString?: string
+  events: {
+    year: number
+    text: string
+  }[]
+
+  currentIndex: number
+  delayedCurrentIndex: number
 }
 
-const Slider: FC<SliderProps> = ({ userString = 'Slider' }) => {
-  return <div className={styles.sliderWrapper}>{userString}</div>
+const Slider: FC<SliderProps> = ({
+  events,
+  currentIndex,
+  delayedCurrentIndex,
+}) => {
+  return (
+    <div
+      className={`slider-wrapper ${
+        currentIndex !== delayedCurrentIndex ? 'slider-wrapper-not-active' : ''
+      }`}
+    >
+      <Swiper
+        modules={[Navigation]}
+        spaceBetween={80}
+        slidesPerView={3}
+        navigation
+        grabCursor
+        slideToClickedSlide
+        speed={600}
+      >
+        {events.map(event => (
+          <SwiperSlide key={nanoid()}>
+            <div className="slide-title">{event.year}</div>
+
+            <div className="slide-content">{event.text}</div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  )
 }
 
 export default Slider

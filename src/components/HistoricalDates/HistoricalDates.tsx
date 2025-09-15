@@ -16,11 +16,13 @@ const HistoricalDates: FC<HistoricalDatesProps> = ({ inputData }) => {
   const {
     generateRevoltSwitcherItems,
     currentIndex,
+    delayedCurrentIndex,
     nextItem,
     previosItem,
-    inputDataArrayLength,
+    INPUT_DATA_ARRAY_LENGTH,
     currentPeriod,
-  } = useRevoltSwitcher(inputData)
+    currentEvents,
+  } = useRevoltSwitcher(inputData, 20)
 
   return (
     <div className={styles.wrapper}>
@@ -28,14 +30,18 @@ const HistoricalDates: FC<HistoricalDatesProps> = ({ inputData }) => {
 
       <RevoltSwitcher
         currentIndex={currentIndex}
-        inputDataArrayLength={inputDataArrayLength}
+        inputDataArrayLength={INPUT_DATA_ARRAY_LENGTH}
         currentPeriod={currentPeriod}
         nextItem={nextItem}
         previosItem={previosItem}
         generateRevoltSwitcherItems={generateRevoltSwitcherItems}
       />
 
-      <Slider />
+      <Slider
+        events={currentEvents}
+        currentIndex={currentIndex}
+        delayedCurrentIndex={delayedCurrentIndex}
+      />
 
       <div className={styles.verticalLine}></div>
       <div className={styles.horizontalLine}></div>

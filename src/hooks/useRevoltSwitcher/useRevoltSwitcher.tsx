@@ -6,18 +6,26 @@ import { nanoid } from 'nanoid'
 import styles from '../../components/RevoltSwitcher/RevoltSwitcher.module.scss'
 import { IHistoricalDates } from '../../mockData/mockData'
 
-export const useRevoltSwitcher = (inputDataArray: IHistoricalDates[]) => {
-  const inputDataArrayLength = inputDataArray.length
-  const delta = (Math.PI * 2) / inputDataArrayLength
+export const useRevoltSwitcher = (
+  inputDataArray: IHistoricalDates[],
+  activeDotAngle = 0,
+) => {
+  const SWITCH_DELAY = 700
+  const INPUT_DATA_ARRAY_LENGTH = inputDataArray.length
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [delayedCurrentIndex, setdDlayedCurrentIndex] = useState(0)
+  const [delayedCurrentIndex, setDlayedCurrentIndex] = useState(0)
   const [currentPeriod, setCurrentPeriod] = useState(inputDataArray[0].period)
   const [currentEvents, setCurrentEvents] = useState(inputDataArray[0].events)
 
   useEffect(() => {
     setCurrentPeriod(inputDataArray[currentIndex].period)
-    setCurrentEvents(inputDataArray[currentIndex].events)
+
+    const setTimeOutId = setTimeout(() => {
+      setCurrentEvents(inputDataArray[currentIndex].events)
+    }, SWITCH_DELAY)
+
+    return () => clearTimeout(setTimeOutId)
   }, [currentIndex, inputDataArray])
 
   const revoltItem = (
@@ -29,8 +37,8 @@ export const useRevoltSwitcher = (inputDataArray: IHistoricalDates[]) => {
       setCurrentIndex(currentIndex)
 
       setTimeout(() => {
-        setdDlayedCurrentIndex(currentIndex)
-      }, 700)
+        setDlayedCurrentIndex(currentIndex)
+      }, SWITCH_DELAY)
     }
   }
 
@@ -38,20 +46,21 @@ export const useRevoltSwitcher = (inputDataArray: IHistoricalDates[]) => {
     setCurrentIndex(currentIndex + 1)
 
     setTimeout(() => {
-      setdDlayedCurrentIndex(currentIndex + 1)
-    }, 700)
+      setDlayedCurrentIndex(currentIndex + 1)
+    }, SWITCH_DELAY)
   }
 
   const previosItem = (): void => {
     setCurrentIndex(currentIndex - 1)
 
     setTimeout(() => {
-      setdDlayedCurrentIndex(currentIndex - 1)
-    }, 700)
+      setDlayedCurrentIndex(currentIndex - 1)
+    }, SWITCH_DELAY)
   }
 
   const generateRevoltSwitcherItems = () => {
-    let angle = 0 - delta
+    const delta = (Math.PI * 2) / INPUT_DATA_ARRAY_LENGTH
+    let angle = 0 - activeDotAngle
 
     return inputDataArray.map((date, index) => {
       const left = 265 * Math.cos(angle) + 236
@@ -81,7 +90,7 @@ export const useRevoltSwitcher = (inputDataArray: IHistoricalDates[]) => {
             top: `${top}px`,
             left: `${left}px`,
             transform: `rotate(${
-              (360 / inputDataArrayLength) * currentIndex
+              (360 / INPUT_DATA_ARRAY_LENGTH) * currentIndex
             }deg)`,
           }}
           className={styles.revoltSwitcherItem}
@@ -105,9 +114,10 @@ export const useRevoltSwitcher = (inputDataArray: IHistoricalDates[]) => {
   return {
     generateRevoltSwitcherItems,
     currentIndex,
+    delayedCurrentIndex,
     nextItem,
     previosItem,
-    inputDataArrayLength,
+    INPUT_DATA_ARRAY_LENGTH,
     currentPeriod,
     currentEvents,
   }
