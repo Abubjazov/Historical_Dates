@@ -23,3 +23,34 @@
   font-weight: bold;
   color: #42567a;
 }
+
+@media (width <= 1000px) {
+  .label {
+    top: 70px;
+    align-items: start;
+  }
+
+  .label-text {
+    font-size: 26px;
+  }
+
+  .label-left-border {
+    height: 36px;
+  }
+}
+
+@media (width <= 560px) {
+  .label {
+    top: 60px;
+    left: 20px;
+    width: 130px;
+  }
+
+  .label-text {
+    font-size: 20px;
+  }
+
+  .label-left-border {
+    display: none;
+  }
+}

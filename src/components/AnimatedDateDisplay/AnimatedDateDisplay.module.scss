@@ -20,3 +20,30 @@
     color: #ef5da8;
   }
 }
+
+@media (width <= 1000px) {
+  .display-wrapper {
+    font-size: 130px;
+  }
+}
+
+@media (width <= 730px) {
+  .display-wrapper {
+    font-size: 100px;
+  }
+}
+
+@media (width <= 590px) {
+  .display-wrapper {
+    gap: 60px;
+  }
+}
+
+@media (width <= 560px) {
+  .display-wrapper {
+    top: 0;
+    gap: 40px;
+    align-items: start;
+    font-size: 56px;
+  }
+}
