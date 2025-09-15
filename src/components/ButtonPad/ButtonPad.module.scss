@@ -24,7 +24,7 @@
   transition: all 0.3s ease-out;
 
   &:hover {
-    background-color: #42567a33;
+    box-shadow: 0 0 15px rgb(56 119 238 / 20%);
   }
 
   &:disabled {

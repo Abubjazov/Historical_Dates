@@ -1,27 +1,41 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.tsx',
+  entry: {
+    index: './src/index.tsx',
+  },
   plugins: [
+    new FaviconsWebpackPlugin('./public/assets/logo.png'),
+    new MiniCssExtractPlugin({
+      filename: 'index.min.css',
+    }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
-    new MiniCssExtractPlugin(),
-    new FaviconsWebpackPlugin({
-      logo: './public/assets/logo.png',
-      // mode: 'webapp',
-      // manifest: './src/manifest.webmanifest',
-    }),
   ],
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
       },
       {
         test: /\.s[ac]ss$/i,
@@ -40,6 +54,10 @@ module.exports = {
         ],
       },
       {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
         test: /\.svg$/i,
         use: ['@svgr/webpack', 'url-loader'],
       },
@@ -50,7 +68,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'bundle.js',
   },
   devServer: {
     static: path.join(__dirname, 'dist'),
