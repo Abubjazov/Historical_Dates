@@ -15,6 +15,9 @@
 }
 
 .revolt-switcher-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 50px;
   height: 50px;
   cursor: pointer;
@@ -23,8 +26,10 @@
   border-radius: 50%;
   transition: all 0.3s ease-out;
 
-  &:hover {
-    box-shadow: 0 0 15px rgb(56 119 238 / 20%);
+  @media (hover: hover) {
+    &:hover {
+      box-shadow: 0 0 15px rgb(56 119 238 / 20%);
+    }
   }
 
   &:disabled {
@@ -38,4 +43,23 @@
   font-size: 14px;
   font-weight: normal;
   color: #42567a;
+}
+
+@media (width <= 560px) {
+  .revolt-switcher-buttons-pad {
+    top: 330px;
+    left: 20px;
+    z-index: 200;
+    width: 60px;
+    height: 50px;
+  }
+
+  .revolt-switcher-button {
+    width: 25px;
+    height: 25px;
+
+    & svg {
+      transform: scale(0.5);
+    }
+  }
 }

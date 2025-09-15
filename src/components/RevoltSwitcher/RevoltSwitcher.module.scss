@@ -6,6 +6,7 @@
   justify-content: center;
   width: 100%;
   height: 620px;
+  overflow: hidden;
 }
 
 .revolt-switcher {
@@ -83,33 +84,45 @@
   animation-iteration-count: 1;
 }
 
-.revolt-switcher-item:hover {
-  .revolt-switcher-item-dot {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 56px;
-    height: 56px;
-    font-size: 20;
-    font-weight: normal;
-    color: #42567a;
-    background-color: #ffffff;
-    border: 1px solid #303e5880;
-    border-radius: 50%;
-    transition: all 0.3s ease-in-out;
+@media (hover: hover) {
+  .revolt-switcher-item:hover {
+    .revolt-switcher-item-dot {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      font-size: 20;
+      font-weight: normal;
+      color: #42567a;
+      background-color: #ffffff;
+      border: 1px solid #303e5880;
+      border-radius: 50%;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .revolt-switcher-item:not(:hover) {
+    .revolt-switcher-item-dot {
+      display: flex;
+      width: 6px;
+      height: 6px;
+      color: transparent;
+      background-color: #42567a;
+      border-radius: 50%;
+      transition-duration: 0.2s, 0.2s, 0.2s;
+      transition-property: width, height, background-color;
+    }
   }
 }
 
-.revolt-switcher-item:not(:hover) {
-  .revolt-switcher-item-dot {
-    display: flex;
-    width: 6px;
-    height: 6px;
-    color: transparent;
-    background-color: #42567a;
-    border-radius: 50%;
-    transition-duration: 0.2s, 0.2s, 0.2s;
-    transition-property: width, height, background-color;
+@media (width <= 560px) {
+  .revolt-switcher-wrapper {
+    height: 400px;
+  }
+
+  .revolt-switcher {
+    display: none;
   }
 }
 

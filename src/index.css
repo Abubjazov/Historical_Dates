@@ -32,3 +32,16 @@ h2 {
 h3 {
   font-size: 18px;
 }
+
+body::-webkit-scrollbar {
+  width: 3px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(#3877ee, #ef5da8);
+  border: none;
+}

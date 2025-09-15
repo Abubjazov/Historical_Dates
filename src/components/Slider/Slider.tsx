@@ -2,12 +2,14 @@ import { FC } from 'react'
 import React from 'react'
 
 import { nanoid } from 'nanoid'
-import { Navigation } from 'swiper/modules'
+import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
+import 'swiper/css/pagination'
 import './Slider.css'
+import useMediaQuery from '../../hooks/useMediaQuery/useMediaQuery'
 
 export interface SliderProps {
   events: {
@@ -24,6 +26,22 @@ const Slider: FC<SliderProps> = ({
   currentIndex,
   delayedCurrentIndex,
 }) => {
+  const isMobile = useMediaQuery('(max-width: 920px)')
+
+  const setSliderPerView = () => {
+    if (isMobile) {
+      return 2
+    }
+    return 3
+  }
+
+  const setSpaceBetween = () => {
+    if (isMobile) {
+      return 10
+    }
+    return 80
+  }
+
   return (
     <div
       className={`slider-wrapper ${
@@ -31,10 +49,11 @@ const Slider: FC<SliderProps> = ({
       }`}
     >
       <Swiper
-        modules={[Navigation]}
-        spaceBetween={80}
-        slidesPerView={3}
-        navigation
+        modules={[Navigation, Pagination]}
+        spaceBetween={setSpaceBetween()}
+        slidesPerView={setSliderPerView()}
+        navigation={!isMobile}
+        pagination={{ enabled: isMobile, clickable: true }}
         grabCursor
         slideToClickedSlide
         speed={600}
