@@ -10,7 +10,7 @@ export interface RevoltSwitcherProps {
   inputDataArrayLength: number
   currentPeriod: number[]
   nextItem: () => void
-  previosItem: () => void
+  previousItem: () => void
   generateRevoltSwitcherItems: () => React.JSX.Element[]
 }
 
@@ -19,7 +19,7 @@ const RevoltSwitcher: FC<RevoltSwitcherProps> = ({
   inputDataArrayLength,
   currentPeriod,
   nextItem,
-  previosItem,
+  previousItem,
   generateRevoltSwitcherItems,
 }) => {
   return (
@@ -44,7 +44,7 @@ const RevoltSwitcher: FC<RevoltSwitcherProps> = ({
       <ButtonPad
         currentIndex={currentIndex}
         inputDataArrayLength={inputDataArrayLength}
-        previosItem={previosItem}
+        previousItem={previousItem}
         nextItem={nextItem}
       />
     </div>

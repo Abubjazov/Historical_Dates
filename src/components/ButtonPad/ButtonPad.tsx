@@ -7,14 +7,14 @@ import SvgIcon from '../SvgIcon/SvgIcon'
 export interface ButtonPudProps {
   currentIndex: number
   inputDataArrayLength: number
-  previosItem: () => void
+  previousItem: () => void
   nextItem: () => void
 }
 
 const ButtonPad: FC<ButtonPudProps> = ({
   currentIndex,
   inputDataArrayLength,
-  previosItem,
+  previousItem,
   nextItem,
 }) => {
   const formatValue = (value: number) => String(value).padStart(2, '0')
@@ -28,8 +28,9 @@ const ButtonPad: FC<ButtonPudProps> = ({
       <div className={styles.revoltSwitcherButtonsWrapper}>
         <button
           className={styles.revoltSwitcherButton}
-          onClick={previosItem}
+          onClick={previousItem}
           disabled={currentIndex + 1 === 1}
+          aria-label="previous period"
         >
           <SvgIcon icon={'arrowLeft'} />
         </button>
@@ -38,6 +39,7 @@ const ButtonPad: FC<ButtonPudProps> = ({
           className={styles.revoltSwitcherButton}
           onClick={nextItem}
           disabled={currentIndex + 1 === inputDataArrayLength}
+          aria-label="next period"
         >
           <SvgIcon icon={'arrowRight'} />
         </button>

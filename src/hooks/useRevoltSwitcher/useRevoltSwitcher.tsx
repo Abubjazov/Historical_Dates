@@ -50,7 +50,7 @@ export const useRevoltSwitcher = (
     }, SWITCH_DELAY)
   }
 
-  const previosItem = (): void => {
+  const previousItem = (): void => {
     setCurrentIndex(currentIndex - 1)
 
     setTimeout(() => {
@@ -116,7 +116,7 @@ export const useRevoltSwitcher = (
     currentIndex,
     delayedCurrentIndex,
     nextItem,
-    previosItem,
+    previousItem,
     INPUT_DATA_ARRAY_LENGTH,
     currentPeriod,
     currentEvents,

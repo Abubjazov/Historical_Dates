@@ -56,7 +56,7 @@ const Slider: FC<SliderProps> = ({
         pagination={{ enabled: isMobile, clickable: true }}
         grabCursor
         slideToClickedSlide
-        speed={600}
+        speed={800}
       >
         {events.map(event => (
           <SwiperSlide key={nanoid()}>
