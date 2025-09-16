@@ -16729,7 +16729,7 @@ var useRevoltSwitcher = function (inputDataArray, activeDotAngle) {
             setDlayedCurrentIndex(currentIndex + 1);
         }, SWITCH_DELAY);
     };
-    var previosItem = function () {
+    var previousItem = function () {
         setCurrentIndex(currentIndex - 1);
         setTimeout(function () {
             setDlayedCurrentIndex(currentIndex - 1);
@@ -16770,7 +16770,7 @@ var useRevoltSwitcher = function (inputDataArray, activeDotAngle) {
         currentIndex: currentIndex,
         delayedCurrentIndex: delayedCurrentIndex,
         nextItem: nextItem,
-        previosItem: previosItem,
+        previousItem: previousItem,
         INPUT_DATA_ARRAY_LENGTH: INPUT_DATA_ARRAY_LENGTH,
         currentPeriod: currentPeriod,
         currentEvents: currentEvents,
@@ -16891,14 +16891,14 @@ var SvgIcon = function (_a) {
 
 
 var ButtonPad = function (_a) {
-    var currentIndex = _a.currentIndex, inputDataArrayLength = _a.inputDataArrayLength, previosItem = _a.previosItem, nextItem = _a.nextItem;
+    var currentIndex = _a.currentIndex, inputDataArrayLength = _a.inputDataArrayLength, previousItem = _a.previousItem, nextItem = _a.nextItem;
     var formatValue = function (value) { return String(value).padStart(2, '0'); };
     return (react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsPad },
         react.createElement("span", { className: ButtonPad_module.revoltSwitcherCounter }, "".concat(formatValue(currentIndex + 1), "/").concat(formatValue(inputDataArrayLength))),
         react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsWrapper },
-            react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: previosItem, disabled: currentIndex + 1 === 1 },
+            react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: previousItem, disabled: currentIndex + 1 === 1, "aria-label": "previous period" },
                 react.createElement(SvgIcon_SvgIcon, { icon: 'arrowLeft' })),
-            react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: nextItem, disabled: currentIndex + 1 === inputDataArrayLength },
+            react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: nextItem, disabled: currentIndex + 1 === inputDataArrayLength, "aria-label": "next period" },
                 react.createElement(SvgIcon_SvgIcon, { icon: 'arrowRight' })))));
 };
 /* harmony default export */ const ButtonPad_ButtonPad = (ButtonPad);
@@ -16913,14 +16913,14 @@ var ButtonPad = function (_a) {
 
 
 var RevoltSwitcher = function (_a) {
-    var currentIndex = _a.currentIndex, inputDataArrayLength = _a.inputDataArrayLength, currentPeriod = _a.currentPeriod, nextItem = _a.nextItem, previosItem = _a.previosItem, generateRevoltSwitcherItems = _a.generateRevoltSwitcherItems;
+    var currentIndex = _a.currentIndex, inputDataArrayLength = _a.inputDataArrayLength, currentPeriod = _a.currentPeriod, nextItem = _a.nextItem, previousItem = _a.previousItem, generateRevoltSwitcherItems = _a.generateRevoltSwitcherItems;
     return (react.createElement("div", { className: RevoltSwitcher_module.revoltSwitcherWrapper },
         react.createElement("div", { className: RevoltSwitcher_module.revoltSwitcher, style: {
                 transition: 'transform 0.5s ease-in',
                 transform: "rotate(".concat((-360 / inputDataArrayLength) * currentIndex, "deg)"),
             } }, generateRevoltSwitcherItems()),
         react.createElement(AnimatedDateDisplay_AnimatedDateDisplay, { startYear: currentPeriod[0], endYear: currentPeriod[1] }),
-        react.createElement(components_ButtonPad, { currentIndex: currentIndex, inputDataArrayLength: inputDataArrayLength, previosItem: previosItem, nextItem: nextItem })));
+        react.createElement(components_ButtonPad, { currentIndex: currentIndex, inputDataArrayLength: inputDataArrayLength, previousItem: previousItem, nextItem: nextItem })));
 };
 /* harmony default export */ const RevoltSwitcher_RevoltSwitcher = (RevoltSwitcher);
 
@@ -26774,10 +26774,10 @@ var Slider = function (_a) {
 
 var HistoricalDates = function (_a) {
     var inputData = _a.inputData;
-    var _b = useRevoltSwitcher(inputData, 20), generateRevoltSwitcherItems = _b.generateRevoltSwitcherItems, currentIndex = _b.currentIndex, delayedCurrentIndex = _b.delayedCurrentIndex, nextItem = _b.nextItem, previosItem = _b.previosItem, INPUT_DATA_ARRAY_LENGTH = _b.INPUT_DATA_ARRAY_LENGTH, currentPeriod = _b.currentPeriod, currentEvents = _b.currentEvents;
+    var _b = useRevoltSwitcher(inputData, 20), generateRevoltSwitcherItems = _b.generateRevoltSwitcherItems, currentIndex = _b.currentIndex, delayedCurrentIndex = _b.delayedCurrentIndex, nextItem = _b.nextItem, previousItem = _b.previousItem, INPUT_DATA_ARRAY_LENGTH = _b.INPUT_DATA_ARRAY_LENGTH, currentPeriod = _b.currentPeriod, currentEvents = _b.currentEvents;
     return (react.createElement("div", { className: HistoricalDates_module.wrapper },
         react.createElement(Label_Label, null),
-        react.createElement(RevoltSwitcher_RevoltSwitcher, { currentIndex: currentIndex, inputDataArrayLength: INPUT_DATA_ARRAY_LENGTH, currentPeriod: currentPeriod, nextItem: nextItem, previosItem: previosItem, generateRevoltSwitcherItems: generateRevoltSwitcherItems }),
+        react.createElement(RevoltSwitcher_RevoltSwitcher, { currentIndex: currentIndex, inputDataArrayLength: INPUT_DATA_ARRAY_LENGTH, currentPeriod: currentPeriod, nextItem: nextItem, previousItem: previousItem, generateRevoltSwitcherItems: generateRevoltSwitcherItems }),
         react.createElement(Slider_Slider, { events: currentEvents, currentIndex: currentIndex, delayedCurrentIndex: delayedCurrentIndex }),
         react.createElement("div", { className: HistoricalDates_module.verticalLine }),
         react.createElement("div", { className: HistoricalDates_module.horizontalLine })));
