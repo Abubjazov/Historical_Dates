@@ -26761,7 +26761,7 @@ var Slider = function (_a) {
     return (react.createElement("div", { className: "slider-wrapper ".concat(currentIndex !== delayedCurrentIndex ? 'slider-wrapper-not-active' : '') },
         react.createElement(swiper_react_Swiper, { modules: [Navigation, Pagination], spaceBetween: setSpaceBetween(), slidesPerView: setSliderPerView(), navigation: !isMobile, pagination: { enabled: isMobile, clickable: true }, grabCursor: true, 
             // slideToClickedSlide
-            speed: 600 }, events.map(function (event) { return (react.createElement(SwiperSlide, { key: nanoid() },
+            speed: 1000 }, events.map(function (event) { return (react.createElement(SwiperSlide, { key: nanoid() },
             react.createElement("div", { className: "slide-title" }, event.year),
             react.createElement("div", { className: "slide-content" }, event.text))); }))));
 };
