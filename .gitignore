@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Webpack build output
+dist/
+build/
+*.bundle.js
+*.chunk.js
+*.hot-update.js
+*.hot-update.json
+*.map
+
+# Editor and OS specific files
+.DS_Store
+.vscode/
+.idea/
+npm-debug.log*
+
+# Environment variables and sensitive data
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# Test coverage reports
+coverage/
+
+# Sentry build artifacts (if applicable)
+.sentryclirc
