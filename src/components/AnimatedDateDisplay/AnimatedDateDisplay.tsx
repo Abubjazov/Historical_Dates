@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import React from 'react'
 
+import { useAnimatedDateDisplay } from 'hooks/useAnimatedDateDisplay/useAnimatedDateDisplay'
+
 import styles from './AnimatedDateDisplay.module.scss'
-import { useAnimatedDateDisplay } from '../../hooks/useAnimatedDateDisplay/useAnimatedDateDisplay'
 
 export interface AnimatedDateDisplayProps {
   startYear: number

@@ -1,9 +1,10 @@
 import { FC } from 'react'
 import React from 'react'
 
+import AnimatedDateDisplay from 'components/AnimatedDateDisplay'
+import ButtonPad from 'components/ButtonPad'
+
 import styles from './RevoltSwitcher.module.scss'
-import AnimatedDateDisplay from '../AnimatedDateDisplay/AnimatedDateDisplay'
-import ButtonPad from '../ButtonPad'
 
 export interface RevoltSwitcherProps {
   currentIndex: number

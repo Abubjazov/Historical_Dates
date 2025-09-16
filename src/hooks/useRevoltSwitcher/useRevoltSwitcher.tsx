@@ -1,32 +1,35 @@
 import { useEffect, useState } from 'react'
 import React from 'react'
 
+import styles from 'components/RevoltSwitcher/RevoltSwitcher.module.scss'
+import { IHistoricalDates } from 'mockData/mockData'
 import { nanoid } from 'nanoid'
 
-import styles from '../../components/RevoltSwitcher/RevoltSwitcher.module.scss'
-import { IHistoricalDates } from '../../mockData/mockData'
-
 export const useRevoltSwitcher = (
-  inputDataArray: IHistoricalDates[],
+  inputHistoricalDates: IHistoricalDates[],
   activeDotAngle = 0,
 ) => {
   const SWITCH_DELAY = 700
-  const INPUT_DATA_ARRAY_LENGTH = inputDataArray.length
+  const INPUT_DATA_ARRAY_LENGTH = inputHistoricalDates.length
 
   const [currentIndex, setCurrentIndex] = useState(0)
   const [delayedCurrentIndex, setDlayedCurrentIndex] = useState(0)
-  const [currentPeriod, setCurrentPeriod] = useState(inputDataArray[0].period)
-  const [currentEvents, setCurrentEvents] = useState(inputDataArray[0].events)
+  const [currentPeriod, setCurrentPeriod] = useState(
+    inputHistoricalDates[0].period,
+  )
+  const [currentEvents, setCurrentEvents] = useState(
+    inputHistoricalDates[0].events,
+  )
 
   useEffect(() => {
-    setCurrentPeriod(inputDataArray[currentIndex].period)
+    setCurrentPeriod(inputHistoricalDates[currentIndex].period)
 
     const setTimeOutId = setTimeout(() => {
-      setCurrentEvents(inputDataArray[currentIndex].events)
+      setCurrentEvents(inputHistoricalDates[currentIndex].events)
     }, SWITCH_DELAY)
 
     return () => clearTimeout(setTimeOutId)
-  }, [currentIndex, inputDataArray])
+  }, [currentIndex, inputHistoricalDates])
 
   const revoltItem = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
@@ -62,7 +65,7 @@ export const useRevoltSwitcher = (
     const delta = (Math.PI * 2) / INPUT_DATA_ARRAY_LENGTH
     let angle = 0 - activeDotAngle
 
-    return inputDataArray.map((date, index) => {
+    return inputHistoricalDates.map((date, index) => {
       const left = 265 * Math.cos(angle) + 236
       const top = 265 * Math.sin(angle) + 236
 

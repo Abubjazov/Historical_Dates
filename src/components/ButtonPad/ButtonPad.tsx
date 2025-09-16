@@ -1,8 +1,9 @@
 import { FC } from 'react'
 import React from 'react'
 
+import SvgIcon from 'components/SvgIcon'
+
 import styles from './ButtonPad.module.scss'
-import SvgIcon from '../SvgIcon/SvgIcon'
 
 export interface ButtonPudProps {
   currentIndex: number

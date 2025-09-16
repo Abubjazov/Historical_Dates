@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -18,7 +19,17 @@ module.exports = {
     }),
   ],
   optimization: {
-    minimizer: [new CssMinimizerPlugin()],
+    minimizer: [
+      new CssMinimizerPlugin(),
+      new ImageMinimizerPlugin({
+        minimizer: {
+          implementation: ImageMinimizerPlugin.imageminMinify,
+          options: {
+            plugins: ['imagemin-pngquant'],
+          },
+        },
+      }),
+    ],
   },
   module: {
     rules: [
@@ -61,10 +72,20 @@ module.exports = {
         test: /\.svg$/i,
         use: ['@svgr/webpack', 'url-loader'],
       },
+      {
+        test: /\.png$/i,
+        type: 'asset',
+        use: [ImageMinimizerPlugin.loader],
+      },
     ],
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
+    alias: {
+      components: path.resolve(__dirname, 'src/components/'),
+      hooks: path.resolve(__dirname, 'src/hooks/'),
+      mockData: path.resolve(__dirname, 'src/mockData/'),
+    },
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
