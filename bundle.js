@@ -16650,133 +16650,6 @@ var __webpack_exports__ = {};
 var react = __webpack_require__(540);
 // EXTERNAL MODULE: ./node_modules/react-dom/client.js
 var client = __webpack_require__(338);
-;// ./src/App/App.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const App_module = ({"mainWrapper":"CxGacO8sAecjf1LXJ4e_"});
-;// ./src/components/HistoricalDates/HistoricalDates.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const HistoricalDates_module = ({"wrapper":"Li9cUDgEZs83taHk2C9v","verticalLine":"BfpKhn5hiUwF_MCnOyHV","horizontalLine":"_3VuGyXtRS1D0lJ7hoWU"});
-;// ./node_modules/nanoid/url-alphabet/index.js
-const urlAlphabet =
-  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
-
-;// ./node_modules/nanoid/index.browser.js
-/* @ts-self-types="./index.d.ts" */
-
-
-let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
-let customRandom = (alphabet, defaultSize, getRandom) => {
-  let mask = (2 << Math.log2(alphabet.length - 1)) - 1
-  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
-  return (size = defaultSize) => {
-    let id = ''
-    while (true) {
-      let bytes = getRandom(step)
-      let j = step | 0
-      while (j--) {
-        id += alphabet[bytes[j] & mask] || ''
-        if (id.length >= size) return id
-      }
-    }
-  }
-}
-let customAlphabet = (alphabet, size = 21) =>
-  customRandom(alphabet, size | 0, random)
-let nanoid = (size = 21) => {
-  let id = ''
-  let bytes = crypto.getRandomValues(new Uint8Array((size |= 0)))
-  while (size--) {
-    id += urlAlphabet[bytes[size] & 63]
-  }
-  return id
-}
-
-;// ./src/components/RevoltSwitcher/RevoltSwitcher.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const RevoltSwitcher_module = ({"revoltSwitcherWrapper":"hREpsJYjnE8OiP35CWVM","revoltSwitcher":"e32UhQeSue9Q13_JWsBf","revoltSwitcherItem":"SebCzIgYdUkOZLVUwIzd","revoltSwitcherItemText":"SfKJvmdgkCVxi51c_PQw","revoltSwitcherItemDot":"bWoL15znogHZB5dS8OaB","revoltSwitcherItemDotNotActive":"cjFcDnvr8T64m8HLby7P","transitionOut":"jPNsCkRVPv1NWycQBBlJ","revoltSwitcherItemDotActive":"dUQujZ6P45fMRL627ooL","transitionIn":"D7lz5cpCUkNev8TCXNgw"});
-;// ./src/hooks/useRevoltSwitcher/useRevoltSwitcher.tsx
-
-
-
-
-var useRevoltSwitcher = function (inputDataArray, activeDotAngle) {
-    if (activeDotAngle === void 0) { activeDotAngle = 0; }
-    var SWITCH_DELAY = 700;
-    var INPUT_DATA_ARRAY_LENGTH = inputDataArray.length;
-    var _a = (0,react.useState)(0), currentIndex = _a[0], setCurrentIndex = _a[1];
-    var _b = (0,react.useState)(0), delayedCurrentIndex = _b[0], setDlayedCurrentIndex = _b[1];
-    var _c = (0,react.useState)(inputDataArray[0].period), currentPeriod = _c[0], setCurrentPeriod = _c[1];
-    var _d = (0,react.useState)(inputDataArray[0].events), currentEvents = _d[0], setCurrentEvents = _d[1];
-    (0,react.useEffect)(function () {
-        setCurrentPeriod(inputDataArray[currentIndex].period);
-        var setTimeOutId = setTimeout(function () {
-            setCurrentEvents(inputDataArray[currentIndex].events);
-        }, SWITCH_DELAY);
-        return function () { return clearTimeout(setTimeOutId); };
-    }, [currentIndex, inputDataArray]);
-    var revoltItem = function (event) {
-        if (!isNaN(+event.currentTarget.innerText)) {
-            var currentIndex_1 = +event.currentTarget.innerText - 1;
-            setCurrentIndex(currentIndex_1);
-            setTimeout(function () {
-                setDlayedCurrentIndex(currentIndex_1);
-            }, SWITCH_DELAY);
-        }
-    };
-    var nextItem = function () {
-        setCurrentIndex(currentIndex + 1);
-        setTimeout(function () {
-            setDlayedCurrentIndex(currentIndex + 1);
-        }, SWITCH_DELAY);
-    };
-    var previousItem = function () {
-        setCurrentIndex(currentIndex - 1);
-        setTimeout(function () {
-            setDlayedCurrentIndex(currentIndex - 1);
-        }, SWITCH_DELAY);
-    };
-    var generateRevoltSwitcherItems = function () {
-        var delta = (Math.PI * 2) / INPUT_DATA_ARRAY_LENGTH;
-        var angle = 0 - activeDotAngle;
-        return inputDataArray.map(function (date, index) {
-            var left = 265 * Math.cos(angle) + 236;
-            var top = 265 * Math.sin(angle) + 236;
-            angle += delta;
-            var isItemTextActive = function () {
-                return index === delayedCurrentIndex && index === currentIndex;
-            };
-            var setItemDotStyles = function () {
-                if (index === delayedCurrentIndex && index !== currentIndex) {
-                    return RevoltSwitcher_module.revoltSwitcherItemDotNotActive;
-                }
-                if (index === delayedCurrentIndex && index === currentIndex) {
-                    return RevoltSwitcher_module.revoltSwitcherItemDotActive;
-                }
-                return RevoltSwitcher_module.revoltSwitcherItemDot;
-            };
-            return (react.createElement("div", { key: nanoid(), style: {
-                    top: "".concat(top, "px"),
-                    left: "".concat(left, "px"),
-                    transform: "rotate(".concat((360 / INPUT_DATA_ARRAY_LENGTH) * currentIndex, "deg)"),
-                }, className: RevoltSwitcher_module.revoltSwitcherItem, onClick: revoltItem },
-                react.createElement("span", { style: {
-                        display: isItemTextActive() ? 'inline' : 'none',
-                    }, className: RevoltSwitcher_module.revoltSwitcherItemText }, date.topic),
-                react.createElement("div", { className: setItemDotStyles() }, index + 1)));
-        });
-    };
-    return {
-        generateRevoltSwitcherItems: generateRevoltSwitcherItems,
-        currentIndex: currentIndex,
-        delayedCurrentIndex: delayedCurrentIndex,
-        nextItem: nextItem,
-        previousItem: previousItem,
-        INPUT_DATA_ARRAY_LENGTH: INPUT_DATA_ARRAY_LENGTH,
-        currentPeriod: currentPeriod,
-        currentEvents: currentEvents,
-    };
-};
-
 ;// ./src/components/Label/Label.module.scss
 // extracted by mini-css-extract-plugin
 /* harmony default export */ const Label_module = ({"label":"g5lHAPbth8UqciSfIjnQ","labelLeftBorder":"aIo_llnyalq5YDswtRII","labelText":"_5bQLXgJe9G2muUUE5hg"});
@@ -16791,9 +16664,10 @@ var Label = function (_a) {
 };
 /* harmony default export */ const Label_Label = (Label);
 
-;// ./src/components/AnimatedDateDisplay/AnimatedDateDisplay.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const AnimatedDateDisplay_module = ({"displayWrapper":"Ai3w1AV3APsitsgE4BFx","startYear":"XXR7jRYh9FFXm3g4HFpN","endYear":"PqoqjiRUfz0pkjg58xEr"});
+;// ./src/components/Label/index.ts
+
+/* harmony default export */ const components_Label = (Label_Label);
+
 ;// ./src/hooks/useAnimatedDateDisplay/useAnimatedDateDisplay.ts
 
 var useAnimatedDateDisplay = function (inputValue, speed) {
@@ -16813,6 +16687,9 @@ var useAnimatedDateDisplay = function (inputValue, speed) {
     };
 };
 
+;// ./src/components/AnimatedDateDisplay/AnimatedDateDisplay.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const AnimatedDateDisplay_module = ({"displayWrapper":"Ai3w1AV3APsitsgE4BFx","startYear":"XXR7jRYh9FFXm3g4HFpN","endYear":"PqoqjiRUfz0pkjg58xEr"});
 ;// ./src/components/AnimatedDateDisplay/AnimatedDateDisplay.tsx
 
 
@@ -16827,9 +16704,10 @@ var AnimatedDateDisplay = function (_a) {
 };
 /* harmony default export */ const AnimatedDateDisplay_AnimatedDateDisplay = (AnimatedDateDisplay);
 
-;// ./src/components/ButtonPad/ButtonPad.module.scss
-// extracted by mini-css-extract-plugin
-/* harmony default export */ const ButtonPad_module = ({"revoltSwitcherButtonsPad":"_hQg_Bu97l5exllCRXx4","revoltSwitcherButtonsWrapper":"L6S6QAMy_GoyHznXhFbp","revoltSwitcherButton":"Cg0RI7fd2okf8atLRhOL","revoltSwitcherCounter":"GPL8ehVmL2jCIQRewvgl"});
+;// ./src/components/AnimatedDateDisplay/index.ts
+
+/* harmony default export */ const components_AnimatedDateDisplay = (AnimatedDateDisplay_AnimatedDateDisplay);
+
 ;// ./src/components/SvgIcon/icons/RevoltSwitcher/arrowLeft.svg
 var _path;
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -16886,6 +16764,13 @@ var SvgIcon = function (_a) {
 };
 /* harmony default export */ const SvgIcon_SvgIcon = (SvgIcon);
 
+;// ./src/components/SvgIcon/index.ts
+
+/* harmony default export */ const components_SvgIcon = (SvgIcon_SvgIcon);
+
+;// ./src/components/ButtonPad/ButtonPad.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const ButtonPad_module = ({"revoltSwitcherButtonsPad":"_hQg_Bu97l5exllCRXx4","revoltSwitcherButtonsWrapper":"L6S6QAMy_GoyHznXhFbp","revoltSwitcherButton":"Cg0RI7fd2okf8atLRhOL","revoltSwitcherCounter":"GPL8ehVmL2jCIQRewvgl"});
 ;// ./src/components/ButtonPad/ButtonPad.tsx
 
 
@@ -16897,9 +16782,9 @@ var ButtonPad = function (_a) {
         react.createElement("span", { className: ButtonPad_module.revoltSwitcherCounter }, "".concat(formatValue(currentIndex + 1), "/").concat(formatValue(inputDataArrayLength))),
         react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsWrapper },
             react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: previousItem, disabled: currentIndex + 1 === 1, "aria-label": "previous period" },
-                react.createElement(SvgIcon_SvgIcon, { icon: 'arrowLeft' })),
+                react.createElement(components_SvgIcon, { icon: 'arrowLeft' })),
             react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: nextItem, disabled: currentIndex + 1 === inputDataArrayLength, "aria-label": "next period" },
-                react.createElement(SvgIcon_SvgIcon, { icon: 'arrowRight' })))));
+                react.createElement(components_SvgIcon, { icon: 'arrowRight' })))));
 };
 /* harmony default export */ const ButtonPad_ButtonPad = (ButtonPad);
 
@@ -16907,6 +16792,9 @@ var ButtonPad = function (_a) {
 
 /* harmony default export */ const components_ButtonPad = (ButtonPad_ButtonPad);
 
+;// ./src/components/RevoltSwitcher/RevoltSwitcher.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const RevoltSwitcher_module = ({"revoltSwitcherWrapper":"hREpsJYjnE8OiP35CWVM","revoltSwitcher":"e32UhQeSue9Q13_JWsBf","revoltSwitcherItem":"SebCzIgYdUkOZLVUwIzd","revoltSwitcherItemText":"SfKJvmdgkCVxi51c_PQw","revoltSwitcherItemDot":"bWoL15znogHZB5dS8OaB","revoltSwitcherItemDotNotActive":"cjFcDnvr8T64m8HLby7P","transitionOut":"jPNsCkRVPv1NWycQBBlJ","revoltSwitcherItemDotActive":"dUQujZ6P45fMRL627ooL","transitionIn":"D7lz5cpCUkNev8TCXNgw"});
 ;// ./src/components/RevoltSwitcher/RevoltSwitcher.tsx
 
 
@@ -16919,10 +16807,66 @@ var RevoltSwitcher = function (_a) {
                 transition: 'transform 0.5s ease-in',
                 transform: "rotate(".concat((-360 / inputDataArrayLength) * currentIndex, "deg)"),
             } }, generateRevoltSwitcherItems()),
-        react.createElement(AnimatedDateDisplay_AnimatedDateDisplay, { startYear: currentPeriod[0], endYear: currentPeriod[1] }),
+        react.createElement(components_AnimatedDateDisplay, { startYear: currentPeriod[0], endYear: currentPeriod[1] }),
         react.createElement(components_ButtonPad, { currentIndex: currentIndex, inputDataArrayLength: inputDataArrayLength, previousItem: previousItem, nextItem: nextItem })));
 };
 /* harmony default export */ const RevoltSwitcher_RevoltSwitcher = (RevoltSwitcher);
+
+;// ./src/components/RevoltSwitcher/index.ts
+
+/* harmony default export */ const components_RevoltSwitcher = (RevoltSwitcher_RevoltSwitcher);
+
+;// ./src/hooks/useMediaQuery/useMediaQuery.ts
+
+var useMediaQuery = function (query) {
+    var _a = (0,react.useState)(true), matches = _a[0], setMatches = _a[1];
+    (0,react.useEffect)(function () {
+        var media = window.matchMedia(query);
+        if (media.matches !== matches) {
+            setMatches(media.matches);
+        }
+        var listener = function () { return setMatches(media.matches); };
+        media.addEventListener('change', listener);
+        return function () { return media.removeEventListener('change', listener); };
+    }, [matches, query]);
+    return matches;
+};
+/* harmony default export */ const useMediaQuery_useMediaQuery = (useMediaQuery);
+
+;// ./node_modules/nanoid/url-alphabet/index.js
+const urlAlphabet =
+  'useandom-26T198340PX75pxJACKVERYMINDBUSHWOLF_GQZbfghjklqvwyzrict'
+
+;// ./node_modules/nanoid/index.browser.js
+/* @ts-self-types="./index.d.ts" */
+
+
+let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))
+let customRandom = (alphabet, defaultSize, getRandom) => {
+  let mask = (2 << Math.log2(alphabet.length - 1)) - 1
+  let step = -~((1.6 * mask * defaultSize) / alphabet.length)
+  return (size = defaultSize) => {
+    let id = ''
+    while (true) {
+      let bytes = getRandom(step)
+      let j = step | 0
+      while (j--) {
+        id += alphabet[bytes[j] & mask] || ''
+        if (id.length >= size) return id
+      }
+    }
+  }
+}
+let customAlphabet = (alphabet, size = 21) =>
+  customRandom(alphabet, size | 0, random)
+let nanoid = (size = 21) => {
+  let id = ''
+  let bytes = crypto.getRandomValues(new Uint8Array((size |= 0)))
+  while (size--) {
+    id += urlAlphabet[bytes[size] & 63]
+  }
+  return id
+}
 
 ;// ./node_modules/swiper/shared/ssr-window.esm.mjs
 /**
@@ -26716,23 +26660,6 @@ SwiperSlide.displayName = 'SwiperSlide';
 
 
 
-;// ./src/hooks/useMediaQuery/useMediaQuery.ts
-
-var useMediaQuery = function (query) {
-    var _a = (0,react.useState)(true), matches = _a[0], setMatches = _a[1];
-    (0,react.useEffect)(function () {
-        var media = window.matchMedia(query);
-        if (media.matches !== matches) {
-            setMatches(media.matches);
-        }
-        var listener = function () { return setMatches(media.matches); };
-        media.addEventListener('change', listener);
-        return function () { return media.removeEventListener('change', listener); };
-    }, [matches, query]);
-    return matches;
-};
-/* harmony default export */ const useMediaQuery_useMediaQuery = (useMediaQuery);
-
 ;// ./src/components/Slider/Slider.tsx
 
 
@@ -26765,6 +26692,96 @@ var Slider = function (_a) {
 };
 /* harmony default export */ const Slider_Slider = (Slider);
 
+;// ./src/components/Slider/index.ts
+
+/* harmony default export */ const components_Slider = (Slider_Slider);
+
+;// ./src/hooks/useRevoltSwitcher/useRevoltSwitcher.tsx
+
+
+
+
+var useRevoltSwitcher = function (inputHistoricalDates, activeDotAngle) {
+    if (activeDotAngle === void 0) { activeDotAngle = 0; }
+    var SWITCH_DELAY = 700;
+    var INPUT_DATA_ARRAY_LENGTH = inputHistoricalDates.length;
+    var _a = (0,react.useState)(0), currentIndex = _a[0], setCurrentIndex = _a[1];
+    var _b = (0,react.useState)(0), delayedCurrentIndex = _b[0], setDlayedCurrentIndex = _b[1];
+    var _c = (0,react.useState)(inputHistoricalDates[0].period), currentPeriod = _c[0], setCurrentPeriod = _c[1];
+    var _d = (0,react.useState)(inputHistoricalDates[0].events), currentEvents = _d[0], setCurrentEvents = _d[1];
+    (0,react.useEffect)(function () {
+        setCurrentPeriod(inputHistoricalDates[currentIndex].period);
+        var setTimeOutId = setTimeout(function () {
+            setCurrentEvents(inputHistoricalDates[currentIndex].events);
+        }, SWITCH_DELAY);
+        return function () { return clearTimeout(setTimeOutId); };
+    }, [currentIndex, inputHistoricalDates]);
+    var revoltItem = function (event) {
+        if (!isNaN(+event.currentTarget.innerText)) {
+            var currentIndex_1 = +event.currentTarget.innerText - 1;
+            setCurrentIndex(currentIndex_1);
+            setTimeout(function () {
+                setDlayedCurrentIndex(currentIndex_1);
+            }, SWITCH_DELAY);
+        }
+    };
+    var nextItem = function () {
+        setCurrentIndex(currentIndex + 1);
+        setTimeout(function () {
+            setDlayedCurrentIndex(currentIndex + 1);
+        }, SWITCH_DELAY);
+    };
+    var previousItem = function () {
+        setCurrentIndex(currentIndex - 1);
+        setTimeout(function () {
+            setDlayedCurrentIndex(currentIndex - 1);
+        }, SWITCH_DELAY);
+    };
+    var generateRevoltSwitcherItems = function () {
+        var delta = (Math.PI * 2) / INPUT_DATA_ARRAY_LENGTH;
+        var angle = 0 - activeDotAngle;
+        return inputHistoricalDates.map(function (date, index) {
+            var left = 265 * Math.cos(angle) + 236;
+            var top = 265 * Math.sin(angle) + 236;
+            angle += delta;
+            var isItemTextActive = function () {
+                return index === delayedCurrentIndex && index === currentIndex;
+            };
+            var setItemDotStyles = function () {
+                if (index === delayedCurrentIndex && index !== currentIndex) {
+                    return RevoltSwitcher_module.revoltSwitcherItemDotNotActive;
+                }
+                if (index === delayedCurrentIndex && index === currentIndex) {
+                    return RevoltSwitcher_module.revoltSwitcherItemDotActive;
+                }
+                return RevoltSwitcher_module.revoltSwitcherItemDot;
+            };
+            return (react.createElement("div", { key: nanoid(), style: {
+                    top: "".concat(top, "px"),
+                    left: "".concat(left, "px"),
+                    transform: "rotate(".concat((360 / INPUT_DATA_ARRAY_LENGTH) * currentIndex, "deg)"),
+                }, className: RevoltSwitcher_module.revoltSwitcherItem, onClick: revoltItem },
+                react.createElement("span", { style: {
+                        display: isItemTextActive() ? 'inline' : 'none',
+                    }, className: RevoltSwitcher_module.revoltSwitcherItemText }, date.topic),
+                react.createElement("div", { className: setItemDotStyles() }, index + 1)));
+        });
+    };
+    return {
+        generateRevoltSwitcherItems: generateRevoltSwitcherItems,
+        currentIndex: currentIndex,
+        delayedCurrentIndex: delayedCurrentIndex,
+        nextItem: nextItem,
+        previousItem: previousItem,
+        INPUT_DATA_ARRAY_LENGTH: INPUT_DATA_ARRAY_LENGTH,
+        currentPeriod: currentPeriod,
+        currentEvents: currentEvents,
+    };
+};
+
+;// ./src/components/HistoricalDates/HistoricalDates.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const HistoricalDates_module = ({"wrapper":"Li9cUDgEZs83taHk2C9v","verticalLine":"BfpKhn5hiUwF_MCnOyHV","horizontalLine":"_3VuGyXtRS1D0lJ7hoWU"});
 ;// ./src/components/HistoricalDates/HistoricalDates.tsx
 
 
@@ -26776,9 +26793,9 @@ var HistoricalDates = function (_a) {
     var inputData = _a.inputData;
     var _b = useRevoltSwitcher(inputData, 20), generateRevoltSwitcherItems = _b.generateRevoltSwitcherItems, currentIndex = _b.currentIndex, delayedCurrentIndex = _b.delayedCurrentIndex, nextItem = _b.nextItem, previousItem = _b.previousItem, INPUT_DATA_ARRAY_LENGTH = _b.INPUT_DATA_ARRAY_LENGTH, currentPeriod = _b.currentPeriod, currentEvents = _b.currentEvents;
     return (react.createElement("div", { className: HistoricalDates_module.wrapper },
-        react.createElement(Label_Label, null),
-        react.createElement(RevoltSwitcher_RevoltSwitcher, { currentIndex: currentIndex, inputDataArrayLength: INPUT_DATA_ARRAY_LENGTH, currentPeriod: currentPeriod, nextItem: nextItem, previousItem: previousItem, generateRevoltSwitcherItems: generateRevoltSwitcherItems }),
-        react.createElement(Slider_Slider, { events: currentEvents, currentIndex: currentIndex, delayedCurrentIndex: delayedCurrentIndex }),
+        react.createElement(components_Label, null),
+        react.createElement(components_RevoltSwitcher, { currentIndex: currentIndex, inputDataArrayLength: INPUT_DATA_ARRAY_LENGTH, currentPeriod: currentPeriod, nextItem: nextItem, previousItem: previousItem, generateRevoltSwitcherItems: generateRevoltSwitcherItems }),
+        react.createElement(components_Slider, { events: currentEvents, currentIndex: currentIndex, delayedCurrentIndex: delayedCurrentIndex }),
         react.createElement("div", { className: HistoricalDates_module.verticalLine }),
         react.createElement("div", { className: HistoricalDates_module.horizontalLine })));
 };
@@ -26934,6 +26951,9 @@ var inputDataArray = [
     },
 ];
 
+;// ./src/App/App.module.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const App_module = ({"mainWrapper":"CxGacO8sAecjf1LXJ4e_"});
 ;// ./src/App/App.tsx
 
 
@@ -26944,6 +26964,9 @@ var App = function () {
         react.createElement(components_HistoricalDates, { inputData: inputDataArray })));
 };
 
+;// ./src/index.scss
+// extracted by mini-css-extract-plugin
+/* harmony default export */ const src = ({});
 ;// ./src/index.tsx
 
 
