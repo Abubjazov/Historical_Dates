@@ -127,6 +127,16 @@
     .swiper-pagination-bullet {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 5px);
   }
+
+  .swiper-slide {
+    opacity: 0.4;
+    transition: opacity 0.3s ease-out;
+  }
+
+  .swiper-slide-active {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+  }
 }
 
 @keyframes historical-date-slider-in {
