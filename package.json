@@ -1,5 +1,6 @@
 {
   "name": "historicaldates",
+  "homepage": "https://abubjazov.github.io/AUGWeb/",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +10,8 @@
     "lint": "eslint -c .eslintrc.cjs --ext .ts,.tsx .",
     "lint:fix": "eslint -c .eslintrc.cjs --ext .ts,.tsx . --fix",
     "styles": "npx stylelint \"**/*.scss\"",
-    "styles:fix": "npx stylelint \"**/*.scss\" --fix"
+    "styles:fix": "npx stylelint \"**/*.scss\" --fix",
+    "deploy": "npm run lint:fix && npm run styles:fix && npm run build && gh-pages -d dist"
   },
   "keywords": [],
   "author": "Abubjazov",
@@ -43,6 +45,7 @@
     "eslint-plugin-react-refresh": "^0.3.5",
     "favicons": "^7.2.0",
     "favicons-webpack-plugin": "^6.0.1",
+    "gh-pages": "^6.3.0",
     "html-webpack-plugin": "^5.6.4",
     "mini-css-extract-plugin": "^2.9.4",
     "prettier": "^2.8.8",
