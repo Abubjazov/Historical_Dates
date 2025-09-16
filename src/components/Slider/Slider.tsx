@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import React from 'react'
 
+import useMediaQuery from 'hooks/useMediaQuery/useMediaQuery'
 import { nanoid } from 'nanoid'
 import { Navigation, Pagination } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -9,7 +10,6 @@ import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
 import './Slider.css'
-import useMediaQuery from '../../hooks/useMediaQuery/useMediaQuery'
 
 export interface SliderProps {
   events: {

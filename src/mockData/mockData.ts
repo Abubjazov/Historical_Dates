@@ -1,5 +1,5 @@
 export interface IHistoricalDates {
-  period: number[]
+  period: [number, number]
   topic: string
   events: {
     year: number

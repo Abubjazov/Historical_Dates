@@ -1,12 +1,13 @@
 import { FC } from 'react'
 import React from 'react'
 
+import Label from 'components/Label'
+import RevoltSwitcher from 'components/RevoltSwitcher'
+import Slider from 'components/Slider'
+import { useRevoltSwitcher } from 'hooks/useRevoltSwitcher/useRevoltSwitcher'
+import { IHistoricalDates } from 'mockData/mockData'
+
 import styles from './HistoricalDates.module.scss'
-import { useRevoltSwitcher } from '../../hooks/useRevoltSwitcher/useRevoltSwitcher'
-import { IHistoricalDates } from '../../mockData/mockData'
-import Label from '../Label/Label'
-import RevoltSwitcher from '../RevoltSwitcher/RevoltSwitcher'
-import Slider from '../Slider/Slider'
 
 export interface HistoricalDatesProps {
   inputData: IHistoricalDates[]

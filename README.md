@@ -6,14 +6,14 @@
 
 #### `Historical dates` - это слайдер разработанный на базе `React`, `TypeScript`, `SCSS` и библиотеки `Swiper`.<br><br>:fire:&nbsp;&nbsp;&nbsp;&nbsp;Настроены линтеры `Eslint` и `Stylelint`.<br>:pager:&nbsp;&nbsp;&nbsp;&nbsp;Адаптирован под мобильные устройства.<br>:octocat:&nbsp;&nbsp;&nbsp;&nbsp;Так же развёрнута `demo`-версия на `GitHub Pages`.<br><br><br>
 
+## Demo
+
+`Link:`&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://abubjazov.github.io/Historical_Dates/">Go to Historical dates on GitHub Pages</a><br><br><br>
+
 ## Стек технологий
 
 ![Static Badge](docs/badges/React.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/TypeScript.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/SCSS.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/Swiper.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/Webpack.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/Eslint.svg)&nbsp;&nbsp;&nbsp;![Static Badge](docs/badges/Stylelint.svg)
 <br><br><br>
-
-## Demo
-
-`Link:`&nbsp;&nbsp;&nbsp;<a target="_blank" rel="noopener noreferrer" href="https://abubjazov.github.io/Historical_Dates/">Go to Historical dates on GitHub Pages</a><br><br><br>
 
 ## Отчёты Lighthouse
 
