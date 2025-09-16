@@ -18,7 +18,7 @@ const HistoricalDates: FC<HistoricalDatesProps> = ({ inputData }) => {
     currentIndex,
     delayedCurrentIndex,
     nextItem,
-    previosItem,
+    previousItem,
     INPUT_DATA_ARRAY_LENGTH,
     currentPeriod,
     currentEvents,
@@ -33,7 +33,7 @@ const HistoricalDates: FC<HistoricalDatesProps> = ({ inputData }) => {
         inputDataArrayLength={INPUT_DATA_ARRAY_LENGTH}
         currentPeriod={currentPeriod}
         nextItem={nextItem}
-        previosItem={previosItem}
+        previousItem={previousItem}
         generateRevoltSwitcherItems={generateRevoltSwitcherItems}
       />
 
