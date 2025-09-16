@@ -4,7 +4,7 @@
 
 # Сompound slider:&nbsp;&nbsp;&nbsp;`Historical dates`<br>
 
-#### `Historical dates` - это слайдер разработанный на базе `React`, `TypeScript`, `SCSS` и библиотеки `Swiper`.<br><br>:warning: Настроены линтеры `Eslint` и `Stylelint`.<br>:pager: Адаптирован под мобильные устройства.<br>:octocat: Так же развёрнута `demo`-версия на `GitHub Pages`.<br><br><br>
+#### `Historical dates` - это слайдер разработанный на базе `React`, `TypeScript`, `SCSS` и библиотеки `Swiper`.<br><br>:warning&nbsp;&nbsp;&nbsp;&nbsp;Настроены линтеры `Eslint` и `Stylelint`.<br>:pager:&nbsp;&nbsp;&nbsp;&nbsp;Адаптирован под мобильные устройства.<br>:octocat:&nbsp;&nbsp;&nbsp;&nbsp;Так же развёрнута `demo`-версия на `GitHub Pages`.<br><br><br>
 
 ## Стек технологий
 
