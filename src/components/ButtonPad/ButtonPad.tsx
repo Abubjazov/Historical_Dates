@@ -21,7 +21,7 @@ const ButtonPad: FC<ButtonPudProps> = ({
   const formatValue = (value: number) => String(value).padStart(2, '0')
 
   return (
-    <div className={styles.revoltSwitcherButtonsPad}>
+    <div className={styles.revoltSwitcherButtonsPadWrapper}>
       <span className={styles.revoltSwitcherCounter}>{`${formatValue(
         currentIndex + 1,
       )}/${formatValue(inputDataArrayLength)}`}</span>

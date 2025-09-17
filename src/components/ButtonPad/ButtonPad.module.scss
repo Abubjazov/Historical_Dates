@@ -1,4 +1,4 @@
-.revolt-switcher-buttons-pad {
+.revolt-switcher-buttons-pad-wrapper {
   position: absolute;
   bottom: 0;
   left: 80px;
@@ -7,59 +7,61 @@
   justify-content: space-between;
   width: 120px;
   height: 88px;
-}
 
-.revolt-switcher-buttons-wrapper {
-  display: flex;
-  justify-content: space-between;
-}
+  .revolt-switcher-counter {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--black-blue);
+  }
 
-.revolt-switcher-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-  background-color: transparent;
-  border: 1px solid #42567a80;
-  border-radius: 50%;
-  transition: all 0.3s ease-out;
+  .revolt-switcher-buttons-wrapper {
+    display: flex;
+    justify-content: space-between;
 
-  @media (hover: hover) {
-    &:hover {
-      box-shadow: 0 0 15px rgb(56 119 238 / 20%);
+    .revolt-switcher-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid  var(--black-blue-alpha-10);
+      border-radius: 50%;
+      transition: all 0.3s ease-out;
+
+      @media (hover: hover) {
+        &:hover {
+          box-shadow: var(--box-shadow-20);
+        }
+      }
+
+      &:disabled {
+        color: var(--black-blue);
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    }
+
+    @media (width <= 560px) {
+      .revolt-switcher-button {
+        width: 25px;
+        height: 25px;
+
+        & svg {
+          transform: scale(0.5);
+        }
+      }
     }
   }
-
-  &:disabled {
-    color: #42567a;
-    cursor: not-allowed;
-    opacity: 0.5;
-  }
-}
-
-.revolt-switcher-counter {
-  font-size: 14px;
-  font-weight: normal;
-  color: #42567a;
 }
 
 @media (width <= 560px) {
-  .revolt-switcher-buttons-pad {
+  .revolt-switcher-buttons-pad-wrapper {
     top: 330px;
     left: 20px;
     z-index: 200;
     width: 60px;
     height: 50px;
-  }
-
-  .revolt-switcher-button {
-    width: 25px;
-    height: 25px;
-
-    & svg {
-      transform: scale(0.5);
-    }
   }
 }

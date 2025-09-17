@@ -1,4 +1,4 @@
-.label {
+.label-wrapper {
   position: absolute;
   top: 170px;
   left: 0;
@@ -7,50 +7,50 @@
   align-items: center;
   height: 134px;
   background-color: transparent;
-}
 
-.label-left-border {
-  width: 4px;
-  height: 120px;
-  margin-right: 78px;
-  background: linear-gradient(#3877ee, #ef5da8);
-}
-
-.label-text {
-  width: 343px;
-  height: 134px;
-  font-size: 56px;
-  font-weight: bold;
-  color: #42567a;
-}
-
-@media (width <= 1000px) {
-  .label {
-    top: 70px;
-    align-items: start;
+  .label-left-border {
+    width: 4px;
+    height: 120px;
+    margin-right: 78px;
+    background: var(--bglinear);
   }
 
   .label-text {
-    font-size: 26px;
+    width: 343px;
+    height: 134px;
+    font-size: 56px;
+    font-weight: bold;
+    color: var(--black-blue);
   }
+}
 
-  .label-left-border {
-    height: 36px;
+@media (width <= 1000px) {
+  .label-wrapper {
+    top: 70px;
+    align-items: start;
+
+    .label-text {
+      font-size: 26px;
+    }
+
+    .label-left-border {
+      height: 36px;
+    }
   }
 }
 
 @media (width <= 560px) {
-  .label {
+  .label-wrapper {
     top: 60px;
     left: 20px;
     width: 130px;
-  }
 
-  .label-text {
-    font-size: 20px;
-  }
+    .label-text {
+      font-size: 20px;
+    }
 
-  .label-left-border {
-    display: none;
+    .label-left-border {
+      display: none;
+    }
   }
 }
