@@ -9,7 +9,7 @@ export interface LabelProps {
 
 const Label: FC<LabelProps> = ({ text = 'Исторические даты' }) => {
   return (
-    <div className={styles.label}>
+    <div className={styles.labelWrapper}>
       <div className={styles.labelLeftBorder}></div>
 
       <div className={styles.labelText}>{text}</div>

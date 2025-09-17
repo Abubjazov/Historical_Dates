@@ -19,7 +19,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 25px;
   font-weight: 400;
-  color: #3877ee;
+  color: var(--blue);
 }
 
 .slide-content {
@@ -27,7 +27,7 @@
   margin-top: 15px;
   font-size: 18px;
   line-height: 1.5;
-  color: #42567a;
+  color: var(--black-blue);
   text-wrap: pretty;
 }
 
@@ -35,15 +35,15 @@
 .swiper-button-next {
   width: 40px;
   height: 40px;
-  background: #ffffff;
+  background: var(--white);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgb(56 119 238 / 10%);
+  box-shadow: var(--box-shadow-10);
 }
 
 @media (hover: hover) {
   .swiper-button-prev:hover,
   .swiper-button-next:hover {
-    box-shadow: 0 0 15px rgb(56 119 238 / 20%);
+    box-shadow: var(--box-shadow-20);
   }
 }
 
@@ -56,13 +56,13 @@
 .swiper-button-next::after {
   font-size: 10px;
   font-weight: bold;
-  color: #3877ee;
+  color: var(--black-blue);
 }
 
 .swiper-pagination-bullet {
   width: 6px;
   height: 6px;
-  background: #42567a;
+  background: var(--black-blue);
 }
 
 @media (width <= 1220px) {

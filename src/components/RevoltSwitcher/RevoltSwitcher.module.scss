@@ -14,74 +14,74 @@
   z-index: 300;
   width: 530px;
   height: 530px;
-  border: 1px solid #40404033;
+  border: 1px solid var(--deep-gray-alpha-20);
   border-radius: 50%;
-}
 
-.revolt-switcher-item {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  font-size: 20;
-  font-weight: normal;
-  color: #42567a;
-  background-color: tansparent;
-  border: none;
-  border-radius: 50%;
-}
+  .revolt-switcher-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    font-size: 20;
+    font-weight: normal;
+    color: var(--black-blue);
+    background-color: tansparent;
+    border: none;
+    border-radius: 50%;
 
-.revolt-switcher-item-text {
-  position: absolute;
-  top: calc(50% - 12px);
-  left: 75px;
-  width: 56px;
-  height: 56px;
-  font-size: 20px;
-  font-weight: bold;
-  color: #42567a;
-}
+    .revolt-switcher-item-text {
+      position: absolute;
+      top: calc(50% - 12px);
+      left: 75px;
+      width: 56px;
+      height: 56px;
+      font-size: 20px;
+      font-weight: bold;
+      color: var(--black-blue);
+    }
 
-.revolt-switcher-item-dot {
-  display: flex;
-  width: 6px;
-  height: 6px;
-  color: transparent;
-  background-color: #42567a;
-  border-radius: 50%;
-}
+    .revolt-switcher-item-dot {
+      display: flex;
+      width: 6px;
+      height: 6px;
+      color: transparent;
+      background-color: var(--black-blue);
+      border-radius: 50%;
+    }
 
-.revolt-switcher-item-dot-not-active {
-  display: flex;
-  width: 6px;
-  height: 6px;
-  color: transparent;
-  background-color: #42567a;
-  border-radius: 50%;
-  animation-name: transition-out;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: 1;
-}
+    .revolt-switcher-item-dot-not-active {
+      display: flex;
+      width: 6px;
+      height: 6px;
+      color: transparent;
+      background-color: var(--black-blue);
+      border-radius: 50%;
+      animation-name: transition-out;
+      animation-duration: 0.2s;
+      animation-timing-function: ease-out;
+      animation-iteration-count: 1;
+    }
 
-.revolt-switcher-item-dot-active {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 56px;
-  height: 56px;
-  font-size: 20;
-  font-weight: normal;
-  color: #42567a;
-  background-color: #ffffff;
-  border: 1px solid #303e5880;
-  border-radius: 50%;
-  animation-name: transition-in;
-  animation-duration: 0.2s;
-  animation-timing-function: ease-out;
-  animation-iteration-count: 1;
+    .revolt-switcher-item-dot-active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      font-size: 20;
+      font-weight: normal;
+      color: var(--black-blue);
+      background-color: var(--white);
+      border: 1px solid var(--deep-blue-alpha-50);
+      border-radius: 50%;
+      animation-name: transition-in;
+      animation-duration: 0.2s;
+      animation-timing-function: ease-out;
+      animation-iteration-count: 1;
+    }
+  }
 }
 
 @media (hover: hover) {
@@ -94,9 +94,9 @@
       height: 56px;
       font-size: 20;
       font-weight: normal;
-      color: #42567a;
-      background-color: #ffffff;
-      border: 1px solid #303e5880;
+      color: var(--black-blue);
+      background-color: var(--white);
+      border: 1px solid var(--deep-blue-alpha-50);
       border-radius: 50%;
       transition: all 0.3s ease-in-out;
     }
@@ -108,7 +108,7 @@
       width: 6px;
       height: 6px;
       color: transparent;
-      background-color: #42567a;
+      background-color: var(--black-blue);
       border-radius: 50%;
       transition-duration: 0.2s, 0.2s, 0.2s;
       transition-property: width, height, background-color;
@@ -130,13 +130,13 @@
   from {
     width: 6px;
     height: 6px;
-    background-color: #42567a;
+    background-color: var(--black-blue);
   }
 
   to {
     width: 56px;
     height: 56px;
-    background-color: #ffffff;
+    background-color: var(--white);
   }
 }
 
