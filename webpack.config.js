@@ -17,7 +17,6 @@ module.exports = {
     }),
     new FontPreloadPlugin({
       extensions: ['ttf'],
-      loadType: 'preload',
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
