@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
-const FontPreloadPlugin = require('webpack-font-preload-plugin')
 
 module.exports = {
   entry: {
@@ -14,9 +13,6 @@ module.exports = {
     new FaviconsWebpackPlugin('./public/assets/logo.png'),
     new MiniCssExtractPlugin({
       filename: 'index.min.css',
-    }),
-    new FontPreloadPlugin({
-      extensions: ['ttf'],
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
@@ -80,10 +76,6 @@ module.exports = {
         test: /\.png$/i,
         type: 'asset',
         use: [ImageMinimizerPlugin.loader],
-      },
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/i,
-        type: 'asset/resource',
       },
     ],
   },
