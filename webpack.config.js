@@ -4,22 +4,31 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin')
+const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
-    index: './src/index.tsx',
+    index: path.resolve(__dirname, 'src/index.tsx'),
+  },
+   output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].[contenthash].js',
   },
   plugins: [
     new FaviconsWebpackPlugin('./public/assets/logo.png'),
     new MiniCssExtractPlugin({
-      filename: 'index.min.css',
+      filename: '[name].[contenthash].css',
     }),
     new HtmlWebpackPlugin({
       template: './public/index.html',
     }),
   ],
   optimization: {
-    minimizer: [
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimizer: [ 
+      new TerserPlugin(),
       new CssMinimizerPlugin(),
       new ImageMinimizerPlugin({
         minimizer: {
@@ -86,10 +95,6 @@ module.exports = {
       hooks: path.resolve(__dirname, 'src/hooks/'),
       mockData: path.resolve(__dirname, 'src/mockData/'),
     },
-  },
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
   },
   devServer: {
     static: path.join(__dirname, 'dist'),
