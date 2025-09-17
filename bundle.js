@@ -16652,13 +16652,13 @@ var react = __webpack_require__(540);
 var client = __webpack_require__(338);
 ;// ./src/components/Label/Label.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const Label_module = ({"label":"g5lHAPbth8UqciSfIjnQ","labelLeftBorder":"aIo_llnyalq5YDswtRII","labelText":"_5bQLXgJe9G2muUUE5hg"});
+/* harmony default export */ const Label_module = ({"labelWrapper":"PfqZ7Zd2guQ1owV6lygB","labelLeftBorder":"aIo_llnyalq5YDswtRII","labelText":"_5bQLXgJe9G2muUUE5hg"});
 ;// ./src/components/Label/Label.tsx
 
 
 var Label = function (_a) {
     var _b = _a.text, text = _b === void 0 ? 'Исторические даты' : _b;
-    return (react.createElement("div", { className: Label_module.label },
+    return (react.createElement("div", { className: Label_module.labelWrapper },
         react.createElement("div", { className: Label_module.labelLeftBorder }),
         react.createElement("div", { className: Label_module.labelText }, text)));
 };
@@ -16770,7 +16770,7 @@ var SvgIcon = function (_a) {
 
 ;// ./src/components/ButtonPad/ButtonPad.module.scss
 // extracted by mini-css-extract-plugin
-/* harmony default export */ const ButtonPad_module = ({"revoltSwitcherButtonsPad":"_hQg_Bu97l5exllCRXx4","revoltSwitcherButtonsWrapper":"L6S6QAMy_GoyHznXhFbp","revoltSwitcherButton":"Cg0RI7fd2okf8atLRhOL","revoltSwitcherCounter":"GPL8ehVmL2jCIQRewvgl"});
+/* harmony default export */ const ButtonPad_module = ({"revoltSwitcherButtonsPadWrapper":"SxQVwZMVTLQiZUCum_oZ","revoltSwitcherCounter":"GPL8ehVmL2jCIQRewvgl","revoltSwitcherButtonsWrapper":"L6S6QAMy_GoyHznXhFbp","revoltSwitcherButton":"Cg0RI7fd2okf8atLRhOL"});
 ;// ./src/components/ButtonPad/ButtonPad.tsx
 
 
@@ -16778,7 +16778,7 @@ var SvgIcon = function (_a) {
 var ButtonPad = function (_a) {
     var currentIndex = _a.currentIndex, inputDataArrayLength = _a.inputDataArrayLength, previousItem = _a.previousItem, nextItem = _a.nextItem;
     var formatValue = function (value) { return String(value).padStart(2, '0'); };
-    return (react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsPad },
+    return (react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsPadWrapper },
         react.createElement("span", { className: ButtonPad_module.revoltSwitcherCounter }, "".concat(formatValue(currentIndex + 1), "/").concat(formatValue(inputDataArrayLength))),
         react.createElement("div", { className: ButtonPad_module.revoltSwitcherButtonsWrapper },
             react.createElement("button", { className: ButtonPad_module.revoltSwitcherButton, onClick: previousItem, disabled: currentIndex + 1 === 1, "aria-label": "previous period" },
