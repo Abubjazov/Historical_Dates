@@ -1,5 +1,5 @@
-@import url('/src/fonts.scss');
-@import url('/src/variables.scss');
+@use '/src/fonts';
+@use '/src/variables';
 
 * {
   box-sizing: border-box;
