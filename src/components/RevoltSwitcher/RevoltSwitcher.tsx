@@ -3,13 +3,14 @@ import React from 'react'
 
 import AnimatedDateDisplay from 'components/AnimatedDateDisplay'
 import ButtonPad from 'components/ButtonPad'
+import { IHistoricalDates } from 'mockData/mockData'
 
 import styles from './RevoltSwitcher.module.scss'
 
 export interface RevoltSwitcherProps {
   currentIndex: number
   inputDataArrayLength: number
-  currentPeriod: number[]
+  currentPeriod: IHistoricalDates['period']
   nextItem: () => void
   previousItem: () => void
   generateRevoltSwitcherItems: () => React.JSX.Element[]
