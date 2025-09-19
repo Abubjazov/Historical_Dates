@@ -1,5 +1,6 @@
+type TPerion = [number, number]
 export interface IHistoricalDates {
-  period: [number, number]
+  period: TPerion
   topic: string
   events: {
     year: number
